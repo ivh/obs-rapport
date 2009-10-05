@@ -1,0 +1,17 @@
+To run the code, you need an existing sqlite-database (name to be 
+changed in db.py) with the table layed out as below. Then include it
+with mod_python into your webpage as below. The live example can be 
+visited here: http://www.astronomi2009.se/rapport/
+
+
+apache-config:
+Alias /rapport /path/to/rapport
+<Directory /path/to/rapport/>
+SetHandler mod_python
+PythonHandler db
+#PythonDebug On
+</Directory>
+
+
+sqlite-schema:
+CREATE TABLE rapp (id INTEGER PRIMARY KEY, antal INTEGER, vem TEXT, var TEXT, vad TEXT, email TEXT, dat TEXT, day INTEGER, mon INTEGER, year INTEGER);
